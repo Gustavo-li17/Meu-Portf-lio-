@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Guia de Tags de Áudio e Vídeo em HTML</title>
+    
+<style>
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --code-bg: #eaeded;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem 1.5rem;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        code {
+            background-color: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        pre {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .media-container {
+            margin: 1.5rem 0;
+            text-align: center;
+            background: #f0f3f4;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        video, audio {
+            max-width: 100%;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .badge {
+            background-color: #f2f2f2;
+            color: rgb(0, 0, 0);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>Tags <code>&lt;audio&gt;</code> e <code>&lt;video&gt;</code> no HTML</h1>
+        <p>Aprenda como incorporar mídia nativamente na web sem necessidade de plugins externos.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Como Elas Funcionam?</h2>
+            <p>Antes do HTML5, para reproduzir áudio ou vídeo na web, era necessário recorrer a plugins de terceiros, como o Adobe Flash Player. Com a chegada do HTML5, o suporte a arquivos multimídia tornou-se <strong>nativo</strong> nos navegadores modernos.</p>
+            <p>Ambas as tags funcionam como elementos de bloco que encapsulam o arquivo de mídia. Dentro delas, podemos definir várias origens (<code>&lt;source&gt;</code>) para garantir a compatibilidade, já que diferentes navegadores suportam diferentes formatos (como MP3 e OGG para áudio, ou MP4, WebM e OGV para vídeo).</p>
+        </section>
+
+        <section>
+            <h2>A Tag <code>&lt;audio&gt;</code></h2>
+            <p>Utilizada para reproduzir arquivos de som. Veja um exemplo prático de implementação:</p>
+            
+            <pre><code>&lt;audio controls&gt;
+    &lt;source src="exemplo.mp3" type="audio/mpeg"&gt;
+    &lt;source src="exemplo.ogg" type="audio/ogg"&gt;
+&lt;/audio&gt;</code></pre>
+
+            <div class="media-container">
+                <p><strong>Demonstração Visual (Áudio Falso):</strong></p>
+                <audio controls>
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </section>
+
+        <section>
+            <h2>A Tag <code>&lt;video&gt;</code></h2>
+            <p>Utilizada para reproduzir arquivos de vídeo e filmes. É muito similar à tag de áudio, mas inclui atributos visuais específicos como largura, altura e imagem de capa (poster).</p>
+            
+            <pre><code>&lt;video width="640" height="360" controls poster="capa.jpg"&gt;
+    &lt;source src="filme.mp4" type="video/mp4"&gt;
+    &lt;source src="filme.webm" type="video/webm"&gt;
+&lt;/video&gt;</code></pre>
+
+            <div class="media-container">
+                <p><strong>Demonstração Visual:</strong></p>
+            <div class="media-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/uueAS3x5wd4" frameborder="0" allowfullscreen></iframe>
+</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Atributos e Suas Funções</h2>
+            <p>Abaixo estão listados todos os principais atributos que você pode utilizar para controlar o comportamento das mídias:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Atributo</th>
+                        <th>Se aplica a</th>
+                        <th>O que faz / Para que serve?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>src</code></td>
+                        <td>Ambos</td>
+                        <td>Especifica o caminho (URL) do arquivo de áudio ou vídeo. (Pode ser substituído pela tag interna <code>&lt;source&gt;</code>).</td>
+                    </tr>
+                    <tr>
+                        <td><code>controls</code></td>
+                        <td>Ambos</td>
+                        <td>Adiciona os controles nativos do navegador (botão Play/Pause, volume, barra de progresso, tela cheia). Sem ele, a mídia fica invisível ou inacessível a menos que controlada por JavaScript.</td>
+                    </tr>
+                    <tr>
+                        <td><code>autoplay</code></td>
+                        <td>Ambos</td>
+                        <td>Faz com que a mídia comece a tocar automaticamente assim que a página carregar. <em>Nota: A maioria dos navegadores bloqueia o autoplay de áudio se o som não estiver mutado.</em></td>
+                    </tr>
+                    <tr>
+                        <td><code>loop</code></td>
+                        <td>Ambos</td>
+                        <td>Faz com que o áudio ou vídeo reinicie automaticamente do início sempre que chegar ao fim (reprodução contínua).</td>
+                    </tr>
+                    <tr>
+                        <td><code>muted</code></td>
+                        <td>Ambos</td>
+                        <td>Inicia a reprodução do arquivo de mídia com o som desativado (mudo). Essencial se quiser usar o <code>autoplay</code> em vídeos de fundo.</td>
+                    </tr>
+                    <tr>
+                        <td><code>preload</code></td>
+                        <td>Ambos</td>
+                        <td>Informa ao navegador como o arquivo deve ser carregado. Valores: <code>none</code> (não carrega até dar play), <code>metadata</code> (carrega só dados básicos como duração) ou <code>auto</code> (carrega o arquivo inteiro imediatamente).</td>
+                    </tr>
+                    <tr>
+                        <td><code>width</code></td>
+                        <td><span class="badge">Apenas Vídeo</span></td>
+                        <td>Define a largura do player de vídeo em pixels.</td>
+                    </tr>
+                    <tr>
+                        <td><code>height</code></td>
+                        <td><span class="badge">Apenas Vídeo</span></td>
+                        <td>Define a altura do player de vídeo em pixels.</td>
+                    </tr>
+                    <tr>
+                        <td><code>poster</code></td>
+                        <td><span class="badge">Apenas Vídeo</span></td>
+                        <td>Especifica uma imagem que será exibida na tela enquanto o vídeo não for reproduzido ou enquanto estiver baixando.</td>
+                    </tr>
+                    <tr>
+                        <td><code>playsinline</code></td>
+                        <td><span class="badge">Apenas Vídeo</span></td>
+                        <td>Indica que o vídeo deve ser reproduzido "inline" dentro do elemento, impedindo que dispositivos móveis (como iPhones) forcem a abertura automática do vídeo em tela cheia nativa.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+<a href="http://127.0.0.1:5500/audio%20e%20video/Educacional.html">Página anterior</a>
+
+<br><br>
+
+    <footer style="text-align: center; padding: 1rem; background-color: var(--primary-color); color: white;">
+        <p>&copy; 2026 Sistemas para internet- IFTO . Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
